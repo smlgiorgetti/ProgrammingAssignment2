@@ -9,15 +9,15 @@
 ## The inverse is computed once and cached internally to be available
 ## to following calls
 
-## makeCacheMatrix is the funcion for defining a matrix and storing it
+## makeCacheMatrix is the function for defining a matrix and storing it
 ## and its inverse. This function contains also the logics (getters and setters)
 ## for handling with the matrices
 ##
 ## input: x -- MUST be a matrix
-## output: x -- it is a list
+## output: it is a list
 
 makeCacheMatrix <- function(x = matrix()) {
-  xinv <- NULL # cache for the inverse
+  xinv <- NULL # cache for the inverse (initially set to NULL)
   
   #setter and getter for the original matrix
   set <- function(y) {
@@ -37,14 +37,14 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve is the funcion for computing a matrix inverse and storing it in cache
+## cacheSolve is the function for computing a matrix inverse and storing it in cache
 ## This function REQUIRES the peculiar above-defined list in input
 ##
-## input: x -- MUST be 
+## input: x -- MUST be of the type defined by makeCacheMatrix
 ## output: x -- it is the inverse of the matrix 'x$get()'
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   
   # check whether the inverse of x was previously computed (and stored in x cache)
   # if yes, return the cached matrix
